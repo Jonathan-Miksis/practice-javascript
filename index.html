@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="/js/highstock.js"></script>
+  <script src="/js/highmaps.js"></script>
+  <title>JavaScript Example</title>
+</head>
+
+<body>
+  I am a webpage
+  <div id="container" style="width:100%; height:400px;"></div>
+
+  <script>
+    Highcharts.getJSON('https://demo-live-data.highcharts.com/aapl-c.json', function (data) {
+      // Create the chart
+      Highcharts.stockChart('container', {
+
+
+        rangeSelector: {
+          selected: 1
+        },
+
+        title: {
+          text: 'AAPL Stock Price'
+        },
+
+        series: [{
+          name: 'AAPL',
+          data: data,
+          tooltip: {
+            valueDecimals: 2
+          }
+        }]
+      });
+    });
+  </script>
+</body>
+
+</html>
